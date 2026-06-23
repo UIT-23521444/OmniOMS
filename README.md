@@ -117,6 +117,6 @@ Bộ tài liệu BRD hoàn chỉnh (10 phần — Stakeholder Analysis, Use Case
 
 ## 👤 Tác giả
 
-**[Họ và tên]**
-Business Analyst Intern Candidate
-📧 [email] · 🔗 [LinkedIn] · 🔗 [Portfolio]
+**Lê Tấn Thành**
+Business Analyst Intern
+📧 thanh121265@gmail.com
