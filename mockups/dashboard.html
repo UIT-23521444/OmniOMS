@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniOMS - Dark Mode Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #2b2d31; }
+    </style>
+</head>
+<body class="p-4 md:p-8 min-h-screen text-gray-200 flex justify-center items-start">
+
+    <div class="flex flex-col md:flex-row gap-6 w-full max-w-6xl">
+        
+        <!-- ========================================== -->
+        <!-- SIDEBAR -->
+        <!-- ========================================== -->
+        <div class="w-full md:w-60 bg-[#1e1f22] rounded-xl p-4 flex flex-col space-y-2 shadow-lg flex-shrink-0 h-fit">
+            <!-- Logo -->
+            <div class="flex items-center px-2 py-4 mb-2">
+                <i class="fas fa-cubes text-[#818cf8] text-2xl mr-3"></i>
+                <span class="text-[#818cf8] text-xl font-bold tracking-wide">OmniOMS</span>
+            </div>
+
+            <!-- Menu Items -->
+            <a href="#" class="flex items-center px-4 py-3 bg-[#2b3040] text-[#a5b4fc] rounded-lg font-medium transition">
+                <i class="fas fa-home w-6 text-lg"></i>
+                <span>Tổng quan</span>
+            </a>
+            
+            <a href="#" class="flex flex-col px-4 py-3 text-gray-400 hover:bg-[#2b2d31] hover:text-gray-300 rounded-lg font-medium transition">
+                <div class="flex items-center">
+                    <i class="fas fa-shopping-cart w-6 text-lg"></i>
+                    <span>Đơn hàng đa</span>
+                </div>
+                <div class="ml-6">kênh</div>
+            </a>
+            
+            <a href="#" class="flex items-center justify-between px-4 py-3 text-gray-400 hover:bg-[#2b2d31] hover:text-gray-300 rounded-lg font-medium transition">
+                <div class="flex items-center">
+                    <i class="fas fa-box-open w-6 text-lg"></i>
+                    <span>Tồn kho</span>
+                </div>
+                <span class="bg-[#3f2025] text-[#ef4444] text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full">2</span>
+            </a>
+            
+            <a href="#" class="flex items-center px-4 py-3 text-gray-400 hover:bg-[#2b2d31] hover:text-gray-300 rounded-lg font-medium transition">
+                <i class="fas fa-chart-pie w-6 text-lg"></i>
+                <span>Analytics (RFM)</span>
+            </a>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- MAIN CONTENT -->
+        <!-- ========================================== -->
+        <div class="flex-1 flex flex-col gap-6">
+            
+            <!-- KPIs Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-[#1e1f22] p-5 rounded-xl border-l-[3px] border-[#3b82f6] shadow-lg flex flex-col justify-center h-24">
+                    <h3 class="text-sm font-medium text-gray-400 mb-1">Đơn chờ xử lý</h3>
+                    <div class="text-3xl font-bold text-white">1,245</div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="bg-[#1e1f22] p-5 rounded-xl border-l-[3px] border-[#10b981] shadow-lg flex flex-col justify-center h-24">
+                    <h3 class="text-sm font-medium text-gray-400 mb-1">Đồng bộ API</h3>
+                    <div class="text-lg font-bold text-[#10b981] flex items-center">
+                        <i class="fas fa-check-circle mr-2"></i> Ổn định
+                    </div>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="bg-[#1e1f22] p-5 rounded-xl border-l-[3px] border-[#ef4444] shadow-lg flex flex-col justify-center h-24">
+                    <h3 class="text-sm font-medium text-[#ef4444] mb-1">Overselling Alert</h3>
+                    <div class="text-2xl font-bold text-[#ef4444] flex items-baseline">
+                        2 <span class="text-sm font-medium ml-2">SKU lỗi</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Table -->
+            <div class="bg-[#1e1f22] rounded-xl shadow-lg flex-1 overflow-hidden">
+                <!-- Header -->
+                <div class="px-6 py-5 border-b border-[#313338]">
+                    <h2 class="text-lg font-bold text-white">Luồng Đơn hàng (Real-time)</h2>
+                </div>
+                
+                <!-- Table -->
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm whitespace-nowrap">
+                        <thead class="text-xs uppercase text-gray-400 font-semibold border-b border-[#313338]">
+                            <tr>
+                                <th class="px-6 py-4">Mã đơn</th>
+                                <th class="px-6 py-4">Kênh</th>
+                                <th class="px-6 py-4">Sản phẩm (SKU)</th>
+                                <th class="px-6 py-4 text-center">SL</th>
+                                <th class="px-6 py-4">Trạng thái</th>
+                                <th class="px-6 py-4"></th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-300">
+                            <!-- Normal Row -->
+                            <tr class="border-b border-[#313338] hover:bg-[#2b2d31] transition-colors">
+                                <td class="px-6 py-4 text-gray-400">SHP-1234</td>
+                                <td class="px-6 py-4">
+                                    <span class="bg-[#4a2b1d] text-[#fb923c] px-3 py-1 rounded-md text-xs font-bold">Shopee</span>
+                                </td>
+                                <td class="px-6 py-4 text-gray-400">AOTRUN-A</td>
+                                <td class="px-6 py-4 text-center font-bold text-white">1</td>
+                                <td class="px-6 py-4 text-[#10b981] font-medium">
+                                    <i class="fas fa-check mr-1.5"></i> Đã trừ kho
+                                </td>
+                                <td class="px-6 py-4 font-medium text-[#3b82f6] hover:text-blue-400 cursor-pointer">
+                                    Chi tiết
+                                </td>
+                            </tr>
+                            
+                            <!-- Alert/Error Row -->
+                            <tr class="bg-[#351a20] hover:bg-[#3d1d25] transition-colors">
+                                <td class="px-6 py-4 font-bold text-[#f87171]">LZD-9988</td>
+                                <td class="px-6 py-4">
+                                    <span class="bg-[#1e2b45] text-[#60a5fa] px-3 py-1 rounded-md text-xs font-bold">Lazada</span>
+                                </td>
+                                <td class="px-6 py-4 font-bold text-[#f87171]">QUANJEAN-B</td>
+                                <td class="px-6 py-4 text-center font-bold text-white text-base">3</td>
+                                <td class="px-6 py-4 font-bold text-[#ef4444]">
+                                    <i class="fas fa-exclamation-triangle mr-1.5"></i> Lỗi Buffer
+                                </td>
+                                <td class="px-6 py-4">
+                                    <button class="bg-[#e11d48] text-white px-4 py-2 rounded-lg text-xs font-bold shadow-md hover:bg-[#be123c] transition-colors flex items-center">
+                                        <i class="fas fa-bolt mr-1.5"></i> Xử lý ngay
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

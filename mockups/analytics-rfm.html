@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniOMS - Dark Mode Analytics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #2b2d31; }
+        /* CSS Pie Chart giữ nguyên màu đặc trưng nhưng viền tối */
+        .pie-chart {
+            background: conic-gradient(
+                #10b981 0% 25%,   /* VIP - Xanh lá */
+                #3b82f6 25% 60%,  /* Thường xuyên - Xanh dương */
+                #f59e0b 60% 80%,  /* Mới - Vàng */
+                #ef4444 80% 100%  /* Rời bỏ - Đỏ */
+            );
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 min-h-screen text-gray-200 flex justify-center items-start">
+
+    <div class="flex flex-col md:flex-row gap-6 w-full max-w-6xl">
+        
+        <div class="w-full md:w-60 bg-[#1e1f22] rounded-xl p-4 flex flex-col space-y-2 shadow-lg flex-shrink-0 h-fit">
+            <div class="flex items-center px-2 py-4 mb-2">
+                <i class="fas fa-cubes text-[#818cf8] text-2xl mr-3"></i>
+                <span class="text-[#818cf8] text-xl font-bold tracking-wide">OmniOMS</span>
+            </div>
+
+            <a href="#" class="flex items-center px-4 py-3 text-gray-400 hover:bg-[#2b2d31] hover:text-gray-300 rounded-lg font-medium transition">
+                <i class="fas fa-home w-6 text-lg"></i>
+                <span>Tổng quan</span>
+            </a>
+            
+            <a href="#" class="flex items-center px-4 py-3 text-gray-400 hover:bg-[#2b2d31] hover:text-gray-300 rounded-lg font-medium transition">
+                <i class="fas fa-shopping-cart w-6 text-lg"></i>
+                <span>Đơn hàng đa kênh</span>
+            </a>
+            
+            <a href="#" class="flex items-center justify-between px-4 py-3 text-gray-400 hover:bg-[#2b2d31] hover:text-gray-300 rounded-lg font-medium transition">
+                <div class="flex items-center">
+                    <i class="fas fa-box-open w-6 text-lg"></i>
+                    <span>Tồn kho</span>
+                </div>
+            </a>
+            
+            <a href="#" class="flex items-center px-4 py-3 bg-[#2b3040] text-[#a855f7] rounded-lg font-medium transition shadow-md border border-[#3b204d]">
+                <i class="fas fa-chart-pie w-6 text-lg"></i>
+                <span>Analytics (RFM)</span>
+            </a>
+        </div>
+
+        <div class="flex-1 bg-[#1e1f22] rounded-xl shadow-lg border border-[#313338] p-6 flex flex-col">
+            
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 border-b border-[#313338] pb-5 gap-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-white">Customer Segmentation Model</h2>
+                    <p class="text-sm text-gray-400 mt-2 flex items-center">
+                        <i class="fas fa-database text-[#a855f7] mr-2"></i> 
+                        Nguồn: Apache Spark (K-Means, k=4) <span class="mx-2">•</span> Cập nhật: 5 phút trước
+                    </p>
+                </div>
+                <div class="text-left md:text-right">
+                    <div class="text-xs text-gray-400 uppercase font-bold tracking-wider mb-1">Tổng tập dữ liệu</div>
+                    <div class="text-3xl font-black text-[#c084fc]">541,909 <span class="text-sm font-medium text-gray-500">records</span></div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center gap-10 flex-1 py-4">
+                
+                <div class="w-56 h-56 md:w-72 md:h-72 pie-chart relative flex-shrink-0 shadow-lg border-8 border-[#1e1f22]">
+                    <div class="absolute inset-0 m-auto w-32 h-32 md:w-40 md:h-40 bg-[#1e1f22] rounded-full flex items-center justify-center flex-col shadow-inner border border-[#313338]">
+                        <span class="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Total Users</span>
+                        <span class="text-2xl font-black text-white">125.4K</span>
+                    </div>
+                </div>
+
+                <div class="flex-1 w-full bg-[#2b2d31] rounded-xl border border-[#313338] overflow-hidden">
+                    <table class="w-full text-left text-sm">
+                        <thead class="text-xs uppercase text-gray-400 font-semibold bg-[#18191c] border-b border-[#313338]">
+                            <tr>
+                                <th class="px-5 py-4">Phân khúc (Cluster)</th>
+                                <th class="px-5 py-4 text-center">%</th>
+                                <th class="px-5 py-4 text-right">Hành động CRM</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-[#313338] text-gray-300">
+                            <tr class="hover:bg-[#1e1f22] transition-colors">
+                                <td class="px-5 py-4 flex items-center font-bold text-white">
+                                    <div class="w-3.5 h-3.5 rounded-full bg-[#10b981] mr-3 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div> 
+                                    VIP (Chi tiêu cao)
+                                </td>
+                                <td class="px-5 py-4 text-center font-bold text-white">25%</td>
+                                <td class="px-5 py-4 text-right">
+                                    <button class="text-xs bg-[#1e1f22] border border-[#313338] text-gray-300 px-3 py-1.5 rounded-md hover:text-white hover:border-gray-500 transition">Gửi quà tặng</button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-[#1e1f22] transition-colors">
+                                <td class="px-5 py-4 flex items-center font-bold text-white">
+                                    <div class="w-3.5 h-3.5 rounded-full bg-[#3b82f6] mr-3 shadow-[0_0_8px_rgba(59,130,246,0.5)]"></div> 
+                                    Thường xuyên
+                                </td>
+                                <td class="px-5 py-4 text-center font-bold text-white">35%</td>
+                                <td class="px-5 py-4 text-right">
+                                    <button class="text-xs bg-[#1e1f22] border border-[#313338] text-gray-300 px-3 py-1.5 rounded-md hover:text-white hover:border-gray-500 transition">Upsell campaign</button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-[#1e1f22] transition-colors">
+                                <td class="px-5 py-4 flex items-center font-bold text-white">
+                                    <div class="w-3.5 h-3.5 rounded-full bg-[#f59e0b] mr-3 shadow-[0_0_8px_rgba(245,158,11,0.5)]"></div> 
+                                    Mới (New)
+                                </td>
+                                <td class="px-5 py-4 text-center font-bold text-white">20%</td>
+                                <td class="px-5 py-4 text-right">
+                                    <button class="text-xs bg-[#1e1f22] border border-[#313338] text-gray-300 px-3 py-1.5 rounded-md hover:text-white hover:border-gray-500 transition">Welcome Email</button>
+                                </td>
+                            </tr>
+                            <tr class="bg-[#351a20]/50 hover:bg-[#351a20] transition-colors">
+                                <td class="px-5 py-4 flex items-center font-bold text-[#fca5a5]">
+                                    <div class="w-3.5 h-3.5 rounded-full bg-[#ef4444] mr-3 shadow-[0_0_8px_rgba(239,68,68,0.8)]"></div> 
+                                    Nguy cơ Rời bỏ
+                                </td>
+                                <td class="px-5 py-4 text-center font-bold text-[#fca5a5]">20%</td>
+                                <td class="px-5 py-4 text-right">
+                                    <button class="text-xs bg-[#e11d48] text-white font-bold px-3 py-1.5 rounded-md hover:bg-[#be123c] shadow-md transition">Gửi Voucher 50%</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
